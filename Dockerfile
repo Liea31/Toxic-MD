@@ -1,4 +1,4 @@
-FROM node:lts-buster
+FROM node:18
 
 RUN apt-get update && \
   apt-get install -y \
@@ -9,9 +9,6 @@ RUN apt-get update && \
   npm i pm2 -g && \
   rm -rf /var/lib/apt/lists/*
   
-RUN git clone https://github.com/xhclintohn/Toxic-MD  /root/toxic
-WORKDIR /root/toxic/
-
 
 COPY package.json .
 RUN npm install pm2 -g
